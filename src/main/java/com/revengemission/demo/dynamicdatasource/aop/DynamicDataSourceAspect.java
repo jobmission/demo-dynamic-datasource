@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Component;
  * Created by revenge mission on 18-6-17.
  */
 @Aspect
-@Order(-1)
+@Order(Ordered.HIGHEST_PRECEDENCE)
 @Component
 public class DynamicDataSourceAspect {
 
