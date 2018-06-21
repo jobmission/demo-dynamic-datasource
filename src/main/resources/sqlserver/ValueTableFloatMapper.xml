@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.revengemission.demo.dynamicdatasource.persistence.sqlserver.mapper.ValueTableFloatMapper">
+    <resultMap id="BaseResultMap" type="com.revengemission.demo.dynamicdatasource.persistence.sqlserver.entity.ValueTableFloat">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+        <result column="value_time" jdbcType="TIMESTAMP" property="valueTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, value, value_time
+    </sql>
+    <select id="count" parameterType="java.lang.String" resultType="java.lang.Long" statementType="STATEMENT">
+        select count(*) from ${tableName}
+    </select>
+    <select id="select" resultMap="BaseResultMap"  statementType="STATEMENT">
+        select
+        <include refid="Base_Column_List" />
+        from ${tableName}
+        where ID=${id}
+    </select>
+    <select id="countById"  resultType="java.lang.Long" statementType="STATEMENT">
+        select count(*) from ${tableName}  where ID=${id}
+    </select>
+</mapper>
