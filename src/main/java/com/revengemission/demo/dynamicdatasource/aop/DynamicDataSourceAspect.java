@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  * Created by revenge mission on 18-6-17.
  */
 @Aspect
-@Order(Ordered.HIGHEST_PRECEDENCE)
+@Order(-1)
 @Component
 public class DynamicDataSourceAspect {
 
