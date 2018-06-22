@@ -87,7 +87,8 @@ public class DataSourceConfig {
         sqlSessionFactoryBean.setDataSource(dynamicDataSource());
         PageInterceptor pageInterceptor = new PageInterceptor();
         Properties properties = new Properties();
-        properties.setProperty("reasonable", "true");
+        properties.setProperty("reasonable", "false");
+        properties.setProperty("autoRuntimeDialect", "true");
         pageInterceptor.setProperties(properties);
         Interceptor[] plugins = new Interceptor[]{pageInterceptor};
         sqlSessionFactoryBean.setPlugins(plugins);
