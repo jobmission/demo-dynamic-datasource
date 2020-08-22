@@ -1,13 +1,12 @@
-package com.revengemission.demo.dynamicdatasource.persistence.app.entity;
+package com.revengemission.demo.dynamicdatasource.persistence.mysql.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class DayStat implements Serializable {
     private Long id;
 
-    private Date valueTime;
+    private String valueTime;
 
     private BigDecimal value;
 
@@ -23,12 +22,12 @@ public class DayStat implements Serializable {
         this.id = id;
     }
 
-    public Date getValueTime() {
+    public String getValueTime() {
         return valueTime;
     }
 
-    public void setValueTime(Date valueTime) {
-        this.valueTime = valueTime;
+    public void setValueTime(String valueTime) {
+        this.valueTime = valueTime == null ? null : valueTime.trim();
     }
 
     public BigDecimal getValue() {

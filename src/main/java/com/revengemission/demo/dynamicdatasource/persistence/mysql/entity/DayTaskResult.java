@@ -1,4 +1,4 @@
-package com.revengemission.demo.dynamicdatasource.persistence.app.entity;
+package com.revengemission.demo.dynamicdatasource.persistence.mysql.entity;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,7 +1,8 @@
 
-## 创建导航仓数据库</br>
+## 创建数据库</br>
 ````SQL
-CREATE DATABASE IF NOT EXISTS data_warehouse DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-grant all privileges on data_warehouse.* to data_warehouse@localhost identified by 'xxx';
-````
+CREATE DATABASE IF NOT EXISTS demo_07;
+create user 'user_dev'@'localhost' identified by 'pass_dev';
+grant all privileges on demo_07.* to 'user_dev'@'localhost';
 
+````

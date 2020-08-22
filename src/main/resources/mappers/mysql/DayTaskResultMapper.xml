@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.revengemission.demo.dynamicdatasource.persistence.app.mapper.DayTaskResultMapper">
-  <resultMap id="BaseResultMap" type="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResult">
+<mapper namespace="com.revengemission.demo.dynamicdatasource.persistence.mysql.mapper.DayTaskResultMapper">
+  <resultMap id="BaseResultMap" type="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResult">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="day" jdbcType="VARCHAR" property="day" />
     <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, day, begin_time, end_time, result, remark
   </sql>
-  <select id="selectByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResultExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResultExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,13 +94,13 @@
     delete from day_task_result
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResultExample">
+  <delete id="deleteByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResultExample">
     delete from day_task_result
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResult">
+  <insert id="insert" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResult">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -109,7 +109,7 @@
     values (#{day,jdbcType=VARCHAR}, #{beginTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
       #{result,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResult">
+  <insert id="insertSelective" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResult">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -149,7 +149,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResultExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResultExample" resultType="java.lang.Long">
     select count(*) from day_task_result
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -193,7 +193,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResult">
+  <update id="updateByPrimaryKeySelective" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResult">
     update day_task_result
     <set>
       <if test="day != null">
@@ -214,7 +214,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResult">
+  <update id="updateByPrimaryKey" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResult">
     update day_task_result
     set day = #{day,jdbcType=VARCHAR},
       begin_time = #{beginTime,jdbcType=TIMESTAMP},

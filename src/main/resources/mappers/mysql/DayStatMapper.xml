@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.revengemission.demo.dynamicdatasource.persistence.app.mapper.DayStatMapper">
-  <resultMap id="BaseResultMap" type="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayStat">
+<mapper namespace="com.revengemission.demo.dynamicdatasource.persistence.mysql.mapper.DayStatMapper">
+  <resultMap id="BaseResultMap" type="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayStat">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="value_time" jdbcType="TIMESTAMP" property="valueTime" />
+    <result column="value_time" jdbcType="VARCHAR" property="valueTime" />
     <result column="value" jdbcType="DECIMAL" property="value" />
     <result column="version" jdbcType="INTEGER" property="version" />
   </resultMap>
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     id, value_time, value, version
   </sql>
-  <select id="selectByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayStatExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayStatExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,22 +92,22 @@
     delete from day_stat
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayStatExample">
+  <delete id="deleteByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayStatExample">
     delete from day_stat
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayStat">
+  <insert id="insert" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayStat">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into day_stat (value_time, value, version
       )
-    values (#{valueTime,jdbcType=TIMESTAMP}, #{value,jdbcType=DECIMAL}, #{version,jdbcType=INTEGER}
+    values (#{valueTime,jdbcType=VARCHAR}, #{value,jdbcType=DECIMAL}, #{version,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayStat">
+  <insert id="insertSelective" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayStat">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -123,7 +123,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="valueTime != null">
-        #{valueTime,jdbcType=TIMESTAMP},
+        #{valueTime,jdbcType=VARCHAR},
       </if>
       <if test="value != null">
         #{value,jdbcType=DECIMAL},
@@ -131,7 +131,7 @@
       #{version,jdbcType=INTEGER},
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayStatExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayStatExample" resultType="java.lang.Long">
     select count(*) from day_stat
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -144,7 +144,7 @@
         id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.valueTime != null">
-        value_time = #{record.valueTime,jdbcType=TIMESTAMP},
+        value_time = #{record.valueTime,jdbcType=VARCHAR},
       </if>
       <if test="record.value != null">
         value = #{record.value,jdbcType=DECIMAL},
@@ -160,18 +160,18 @@
   <update id="updateByExample" parameterType="map">
     update day_stat
     set id = #{record.id,jdbcType=BIGINT},
-      value_time = #{record.valueTime,jdbcType=TIMESTAMP},
+      value_time = #{record.valueTime,jdbcType=VARCHAR},
       value = #{record.value,jdbcType=DECIMAL},
       version = #{record.version,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayStat">
+  <update id="updateByPrimaryKeySelective" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayStat">
     update day_stat
     <set>
       <if test="valueTime != null">
-        value_time = #{valueTime,jdbcType=TIMESTAMP},
+        value_time = #{valueTime,jdbcType=VARCHAR},
       </if>
       <if test="value != null">
         value = #{value,jdbcType=DECIMAL},
@@ -182,9 +182,9 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayStat">
+  <update id="updateByPrimaryKey" parameterType="com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayStat">
     update day_stat
-    set value_time = #{valueTime,jdbcType=TIMESTAMP},
+    set value_time = #{valueTime,jdbcType=VARCHAR},
       value = #{value,jdbcType=DECIMAL},
       version = #{version,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}

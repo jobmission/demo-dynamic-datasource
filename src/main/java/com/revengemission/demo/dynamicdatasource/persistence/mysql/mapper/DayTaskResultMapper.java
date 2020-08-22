@@ -1,10 +1,12 @@
-package com.revengemission.demo.dynamicdatasource.persistence.app.mapper;
+package com.revengemission.demo.dynamicdatasource.persistence.mysql.mapper;
 
-import com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResult;
-import com.revengemission.demo.dynamicdatasource.persistence.app.entity.DayTaskResultExample;
+import com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResult;
+import com.revengemission.demo.dynamicdatasource.persistence.mysql.entity.DayTaskResultExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface DayTaskResultMapper {
     long countByExample(DayTaskResultExample example);
 

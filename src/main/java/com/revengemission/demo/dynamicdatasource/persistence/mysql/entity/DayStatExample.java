@@ -1,8 +1,7 @@
-package com.revengemission.demo.dynamicdatasource.persistence.app.entity;
+package com.revengemission.demo.dynamicdatasource.persistence.mysql.entity;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DayStatExample {
@@ -13,7 +12,7 @@ public class DayStatExample {
     protected List<Criteria> oredCriteria;
 
     public DayStatExample() {
-        oredCriteria = new ArrayList<Criteria>();
+        oredCriteria = new ArrayList<>();
     }
 
     public void setOrderByClause(String orderByClause) {
@@ -70,7 +69,7 @@ public class DayStatExample {
 
         protected GeneratedCriteria() {
             super();
-            criteria = new ArrayList<Criterion>();
+            criteria = new ArrayList<>();
         }
 
         public boolean isValid() {
@@ -176,52 +175,62 @@ public class DayStatExample {
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeEqualTo(Date value) {
+        public Criteria andValueTimeEqualTo(String value) {
             addCriterion("value_time =", value, "valueTime");
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeNotEqualTo(Date value) {
+        public Criteria andValueTimeNotEqualTo(String value) {
             addCriterion("value_time <>", value, "valueTime");
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeGreaterThan(Date value) {
+        public Criteria andValueTimeGreaterThan(String value) {
             addCriterion("value_time >", value, "valueTime");
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andValueTimeGreaterThanOrEqualTo(String value) {
             addCriterion("value_time >=", value, "valueTime");
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeLessThan(Date value) {
+        public Criteria andValueTimeLessThan(String value) {
             addCriterion("value_time <", value, "valueTime");
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeLessThanOrEqualTo(Date value) {
+        public Criteria andValueTimeLessThanOrEqualTo(String value) {
             addCriterion("value_time <=", value, "valueTime");
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeIn(List<Date> values) {
+        public Criteria andValueTimeLike(String value) {
+            addCriterion("value_time like", value, "valueTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andValueTimeNotLike(String value) {
+            addCriterion("value_time not like", value, "valueTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andValueTimeIn(List<String> values) {
             addCriterion("value_time in", values, "valueTime");
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeNotIn(List<Date> values) {
+        public Criteria andValueTimeNotIn(List<String> values) {
             addCriterion("value_time not in", values, "valueTime");
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeBetween(Date value1, Date value2) {
+        public Criteria andValueTimeBetween(String value1, String value2) {
             addCriterion("value_time between", value1, value2, "valueTime");
             return (Criteria) this;
         }
 
-        public Criteria andValueTimeNotBetween(Date value1, Date value2) {
+        public Criteria andValueTimeNotBetween(String value1, String value2) {
             addCriterion("value_time not between", value1, value2, "valueTime");
             return (Criteria) this;
         }
@@ -348,7 +357,6 @@ public class DayStatExample {
     }
 
     public static class Criteria extends GeneratedCriteria {
-
         protected Criteria() {
             super();
         }
